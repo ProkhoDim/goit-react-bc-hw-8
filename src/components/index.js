@@ -2,3 +2,4 @@ export { default as BackgroundContainer } from './BackgroundContainer/Background
 export { default as Background } from './Background/Background';
 export { default as PublicRoute } from './PublicRoute';
 export { default as PrivateRoute } from './PrivateRoute';
+export { default as ContactsList } from './ContactsList/ContactsList';

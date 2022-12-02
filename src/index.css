@@ -9,11 +9,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  text-decoration-line: unset;
-  color: unset;
-}
-
 .app-container {
   display: flex;
   flex-direction: column;

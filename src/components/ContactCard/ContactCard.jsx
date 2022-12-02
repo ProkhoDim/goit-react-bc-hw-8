@@ -21,7 +21,7 @@ const ContactCard = ({
   onEdit = () => {},
 }) => {
   return (
-    <Card>
+    <Card elevation={4}>
       <CardContent sx={{ display: 'flex', alignItems: 'center' }}>
         <Avatar
           sx={{
@@ -41,7 +41,7 @@ const ContactCard = ({
           variant="contained"
           color="primary"
           startIcon={<EditIcon />}
-          onClick={() => onEdit(id, { name, number })}
+          onClick={() => onEdit({ id, name, number })}
         >
           Edit
         </Button>

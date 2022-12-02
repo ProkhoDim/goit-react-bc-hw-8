@@ -25,12 +25,12 @@ const ContactsTitle = styled(props => (
     {...props}
     sx={{
       mr: 2,
-      display: { xs: 'none', md: 'flex' },
       fontFamily: 'monospace',
       fontWeight: 700,
       letterSpacing: '.3rem',
       color: 'inherit',
       textDecoration: 'none',
+      cursor: 'pointer',
       ...props.sx,
     }}
   />
@@ -61,7 +61,7 @@ const HeaderAppBar = () => {
   const navigateTo =
     (to = '') =>
     () =>
-      navigate(to);
+      navigate(to, { replace: true });
 
   const logout = () => dispatch(userLogout());
 
@@ -69,68 +69,11 @@ const HeaderAppBar = () => {
     <AppBar position="sticky">
       <Container maxWidth="lg">
         <Toolbar disableGutters>
-          <ContactsBookIcon
-            sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }}
-          />
-          <ContactsTitle xs={{ display: { xs: 'none', md: 'flex' } }}>
-            <Link to={routes.HOME}>CONTACTS</Link>
+          <ContactsBookIcon sx={{ mr: 1 }} />
+          <ContactsTitle onClick={navigateTo(routes.HOME)}>
+            CONTACTS
           </ContactsTitle>
-          {isLoggedIn ? null : (
-            <Box
-              sx={{
-                flexGrow: 1,
-                display: { xs: 'flex', md: 'none' },
-              }}
-            >
-              <IconButton
-                size="large"
-                aria-label="account of current user"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
-                onClick={handleOpenNavMenu}
-                color="inherit"
-              >
-                <MenuIcon />
-              </IconButton>
-              <Menu
-                id="menu-appbar"
-                anchorEl={anchorElNav}
-                anchorOrigin={{
-                  vertical: 'bottom',
-                  horizontal: 'left',
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'left',
-                }}
-                open={Boolean(anchorElNav)}
-                onClose={handleCloseNavMenu}
-                sx={{
-                  display: { xs: 'block', md: 'none' },
-                }}
-              >
-                {pages.map(({ title, to }) => (
-                  <MenuItem key={title} onClick={handleCloseNavMenu}>
-                    <Link to={to}>
-                      <Typography textAlign="center">{title}</Typography>
-                    </Link>
-                  </MenuItem>
-                ))}
-              </Menu>
-            </Box>
-          )}
-          <ContactsBookIcon
-            sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }}
-          />
 
-          <ContactsTitle
-            sx={{
-              display: { xs: 'flex', md: 'none' },
-            }}
-          >
-            <Link to={routes.HOME}>CONTACTS</Link>
-          </ContactsTitle>
           <Box
             sx={{
               flexGrow: 1,
@@ -156,17 +99,27 @@ const HeaderAppBar = () => {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'flex-end',
+                overflow: 'hidden',
               }}
             >
               <Typography
                 variant="body1"
                 sx={{
-                  display: { xs: 'none', md: 'block' },
                   textTransform: 'capitalize',
                   mr: 2,
+                  display: 'block',
+                  overflow: 'hidden',
+                  whiteSpace: 'nowrap',
+                  textOverflow: 'ellipsis',
                 }}
               >
-                Welcome, {userName}
+                <Typography
+                  component="span"
+                  sx={{ display: { xs: 'none', md: 'inline' } }}
+                >
+                  Welcome,{' '}
+                </Typography>
+                {userName}
               </Typography>
 
               <Tooltip title="Logout">

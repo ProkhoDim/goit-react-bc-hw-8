@@ -19,7 +19,7 @@ export const userSingUp = createAsyncThunk(
       const user = await axios.post('/users/signup', { name, email, password });
       return user.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.response.data.message);
     }
   }
 );
@@ -33,7 +33,7 @@ export const userLogIn = createAsyncThunk(
       thunkAPI.dispatch(fetchContacts());
       return user.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.response.data.message);
     }
   }
 );
@@ -55,13 +55,13 @@ export const getCurrentUser = createAsyncThunk(
       thunkAPI.dispatch(fetchContacts());
       return user.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.response.data.message);
     }
   }
 );
 
 export const userLogout = createAsyncThunk('user/logout', () => {
-  removeToken();
   axios.post('/users/logout');
+  removeToken();
   return;
 });

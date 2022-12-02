@@ -1,14 +1,11 @@
-import { Route, Routes } from 'react-router-dom';
-import SharedLayout from 'components/SharedLayout';
-import Contacts from 'pages/Contacts/Contacts';
-import routes from 'constants/routes';
-import LoginPage from 'pages/LogIn/LoginPage';
-import SignUpPage from 'pages/SignUp/SignUpPage';
-import HomePage from 'pages/Home/HomePage';
 import { createTheme, ThemeProvider } from '@mui/material';
 import { PrivateRoute, PublicRoute } from 'components';
-import { useAppDispatch } from 'redux/redux-hooks';
+import SharedLayout from 'components/SharedLayout';
+import routes from 'constants/routes';
+import { ContactsPage, HomePage, LoginPage, SignUpPage } from 'pages';
 import { useEffect } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import { useAppDispatch } from 'redux/redux-hooks';
 import { getCurrentUser } from 'redux/user/operations';
 
 const theme = createTheme({
@@ -44,7 +41,10 @@ export const App = () => {
           <Route
             path={routes.CONTACTS}
             element={
-              <PrivateRoute component={<Contacts />} redirectTo={routes.HOME} />
+              <PrivateRoute
+                component={<ContactsPage />}
+                redirectTo={routes.HOME}
+              />
             }
           />
           <Route

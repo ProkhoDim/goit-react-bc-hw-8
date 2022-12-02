@@ -17,6 +17,7 @@ const BackgroundContainer = ({
         <CircularProgress />
       </Backdrop>
       <Paper
+        elevation={4}
         sx={{ borderRadius: 3, maxWidth: 400, ...sx }}
         className={css.paper}
       >
