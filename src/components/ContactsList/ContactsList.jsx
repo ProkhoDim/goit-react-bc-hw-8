@@ -2,12 +2,13 @@ import { ContactCard, EditForm } from 'components';
 import React, { useState } from 'react';
 import { useCallback } from 'react';
 import { editContact, removeContact } from 'redux/contacts/operations';
+import { selectContacts } from 'redux/contacts/selectors';
 import { useAppDispatch, useAppSelector } from 'redux/redux-hooks';
 import css from './ContactsList.module.css';
 
 const ContactsList = () => {
   const dispatch = useAppDispatch();
-  const contacts = useAppSelector(state => state.contacts.contacts);
+  const contacts = useAppSelector(selectContacts);
   const [editData, setEditData] = useState({});
   const remove = useCallback(
     id => {
