@@ -1,40 +1,16 @@
+import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
-import MenuItem from '@mui/material/MenuItem';
-import { useState } from 'react';
-import { ContactsBookIcon } from 'components/common';
-import { useAppDispatch, useAppSelector } from 'redux/redux-hooks';
-import { selectUserLoggedIn, selectUserName } from 'redux/user/selectors';
-import { Link, useNavigate } from 'react-router-dom';
-import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
+import Container from '@mui/material/Container';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import { ContactsBookIcon, MonospaceTitle } from 'components/common';
 import routes from 'constants/routes';
-import { styled, Tooltip } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
+import { useAppDispatch, useAppSelector } from 'redux/redux-hooks';
 import { userLogout } from 'redux/user/operations';
-
-const ContactsTitle = styled(props => (
-  <Typography
-    noWrap
-    variant="h6"
-    {...props}
-    sx={{
-      mr: 2,
-      fontFamily: 'monospace',
-      fontWeight: 700,
-      letterSpacing: '.3rem',
-      color: 'inherit',
-      textDecoration: 'none',
-      cursor: 'pointer',
-      ...props.sx,
-    }}
-  />
-))({});
+import { selectUserLoggedIn, selectUserName } from 'redux/user/selectors';
 
 const HeaderAppBar = () => {
   const dispatch = useAppDispatch();
@@ -42,15 +18,6 @@ const HeaderAppBar = () => {
   const isLoggedIn = useAppSelector(selectUserLoggedIn);
 
   const navigate = useNavigate();
-  const [anchorElNav, setAnchorElNav] = useState(null);
-
-  const handleOpenNavMenu = event => {
-    setAnchorElNav(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
   const pages = isLoggedIn
     ? []
     : [
@@ -70,9 +37,14 @@ const HeaderAppBar = () => {
       <Container maxWidth="lg">
         <Toolbar disableGutters>
           <ContactsBookIcon sx={{ mr: 1 }} />
-          <ContactsTitle onClick={navigateTo(routes.HOME)}>
+          <MonospaceTitle
+            noWrap
+            variant="h6"
+            sx={{ letterSpacing: '.3rem' }}
+            onClick={navigateTo(routes.HOME)}
+          >
             CONTACTS
-          </ContactsTitle>
+          </MonospaceTitle>
 
           <Box
             sx={{
@@ -122,16 +94,14 @@ const HeaderAppBar = () => {
                 {userName}
               </Typography>
 
-              <Tooltip title="Logout">
-                <Button
-                  color="warning"
-                  variant="contained"
-                  sx={{ borderRadius: '50%', p: 1, minWidth: 24 }}
-                  onClick={logout}
-                >
-                  <LogoutRoundedIcon />
-                </Button>
-              </Tooltip>
+              <Button
+                color="secondary"
+                startIcon={<LogoutRoundedIcon />}
+                variant="contained"
+                onClick={logout}
+              >
+                Logout
+              </Button>
             </Box>
           ) : null}
         </Toolbar>

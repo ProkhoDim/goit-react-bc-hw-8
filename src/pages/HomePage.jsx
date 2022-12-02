@@ -1,6 +1,7 @@
 import { Box, Button, Divider, Typography } from '@mui/material';
 import { ReactComponent as PeopleIcon } from 'assets/bacdrop.svg';
 import { BackgroundContainer } from 'components';
+import { MonospaceTitle } from 'components/common';
 import routes from 'constants/routes';
 import { useNavigate } from 'react-router-dom';
 
@@ -12,16 +13,7 @@ const HomePage = () => {
       backgroundIcon={<PeopleIcon />}
       sx={{ width: 'auto', maxWidth: 'fit-content', alignItems: 'center' }}
     >
-      <Typography
-        variant="h4"
-        style={{
-          fontWeight: 700,
-          fontFamily: 'monospace',
-          textAlign: 'center',
-        }}
-      >
-        Welcome to Contacts app
-      </Typography>
+      <MonospaceTitle variant="h4">Welcome to Contacts app</MonospaceTitle>
       <Box display="flex" justifyContent="space-evenly">
         <Button variant="contained" onClick={() => navigate(routes.LOGIN)}>
           Login

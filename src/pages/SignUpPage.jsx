@@ -33,11 +33,11 @@ const SignUpPage = () => {
     <BackgroundContainer loading={isLoading} backgroundIcon={<SigninIcon />}>
       <Typography
         variant="h3"
-        sx={{
+        sx={theme => ({
           fontWeight: 500,
-          color: '#1976d2',
+          color: theme.palette.primary.main,
           textShadow: '2px 2px 3px rgba(0,0,100,0.3)',
-        }}
+        })}
       >
         Sign Up
       </Typography>
@@ -61,9 +61,14 @@ const SignUpPage = () => {
 
         <Typography>
           Already have an account?{' '}
-          <Link to={routes.LOGIN} replace style={{ color: '#1976d2' }}>
-            Log In
-          </Link>
+          <Typography
+            component="span"
+            sx={theme => ({ color: theme.palette.primary.main })}
+          >
+            <Link to={routes.LOGIN} replace style={{ color: 'inherit' }}>
+              Log In
+            </Link>
+          </Typography>
         </Typography>
       </form>
     </BackgroundContainer>
