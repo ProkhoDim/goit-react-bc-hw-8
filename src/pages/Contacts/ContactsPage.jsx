@@ -1,13 +1,15 @@
 import { AddContact, ContactsList } from 'components';
+import css from './ContactsPage.module.css';
 
 const ContactsPage = () => {
   return (
-    <div
-      style={{ position: 'relative', display: 'flex', flexDirection: 'column' }}
-    >
-      <ContactsList />
-      <AddContact />
-    </div>
+    <>
+      <div className={css.background} />
+      <div className={css.wrap}>
+        <ContactsList />
+        <AddContact />
+      </div>
+    </>
   );
 };
 

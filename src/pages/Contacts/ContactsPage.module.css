@@ -1,20 +1,17 @@
-.container {
-  height: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  place-content: stretch;
-  gap: 20px;
-  padding: 1rem 0;
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('../../assets/hashtag.svg') no-repeat center center;
+  background-clip: padding-box;
+  background-size: contain;
+  z-index: -1;
 }
 
-@media screen and (max-width: 450px) {
-  .container {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media screen and (max-width: 700px) {
-  .container {
-    grid-template-columns: 1fr 1fr;
-  }
+.wrap {
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
