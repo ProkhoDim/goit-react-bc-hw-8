@@ -1,13 +1,14 @@
 {
   "files": {
-    "main.css": "/goit-react-bc-hw-8/static/css/main.a4a36d3a.css",
-    "main.js": "/goit-react-bc-hw-8/static/js/main.2ae555f5.js",
+    "main.css": "/goit-react-bc-hw-8/static/css/main.916e6470.css",
+    "main.js": "/goit-react-bc-hw-8/static/js/main.005db951.js",
     "static/media/signin.svg": "/goit-react-bc-hw-8/static/media/signin.d011364996bd794b1506690e4a374aa6.svg",
     "static/media/bacdrop.svg": "/goit-react-bc-hw-8/static/media/bacdrop.f2544bfc9cbfb3ea65aff146fdd8b6f2.svg",
     "static/media/roboto-all-500-normal.woff": "/goit-react-bc-hw-8/static/media/roboto-all-500-normal.0ab669b7a0d19b178f57.woff",
     "static/media/roboto-all-700-normal.woff": "/goit-react-bc-hw-8/static/media/roboto-all-700-normal.a457fde362a540fcadff.woff",
     "static/media/roboto-all-400-normal.woff": "/goit-react-bc-hw-8/static/media/roboto-all-400-normal.c5d001fa922fa66a147f.woff",
     "static/media/roboto-all-300-normal.woff": "/goit-react-bc-hw-8/static/media/roboto-all-300-normal.168d6383e73339293ac3.woff",
+    "static/media/hashtag.svg": "/goit-react-bc-hw-8/static/media/hashtag.7ede3fdcb8040ca3dd68.svg",
     "static/media/roboto-latin-500-normal.woff2": "/goit-react-bc-hw-8/static/media/roboto-latin-500-normal.f25d774ecfe0996f8eb5.woff2",
     "static/media/roboto-latin-700-normal.woff2": "/goit-react-bc-hw-8/static/media/roboto-latin-700-normal.227c93190fe7f82de3f8.woff2",
     "static/media/roboto-latin-400-normal.woff2": "/goit-react-bc-hw-8/static/media/roboto-latin-400-normal.b009a76ad6afe4ebd301.woff2",
@@ -37,11 +38,11 @@
     "static/media/roboto-greek-ext-300-normal.woff2": "/goit-react-bc-hw-8/static/media/roboto-greek-ext-300-normal.35b9d6be04b95f0f0530.woff2",
     "static/media/roboto-greek-ext-700-normal.woff2": "/goit-react-bc-hw-8/static/media/roboto-greek-ext-700-normal.bd9854c751441ccc1a70.woff2",
     "index.html": "/goit-react-bc-hw-8/index.html",
-    "main.a4a36d3a.css.map": "/goit-react-bc-hw-8/static/css/main.a4a36d3a.css.map",
-    "main.2ae555f5.js.map": "/goit-react-bc-hw-8/static/js/main.2ae555f5.js.map"
+    "main.916e6470.css.map": "/goit-react-bc-hw-8/static/css/main.916e6470.css.map",
+    "main.005db951.js.map": "/goit-react-bc-hw-8/static/js/main.005db951.js.map"
   },
   "entrypoints": [
-    "static/css/main.a4a36d3a.css",
-    "static/js/main.2ae555f5.js"
+    "static/css/main.916e6470.css",
+    "static/js/main.005db951.js"
   ]
 }
