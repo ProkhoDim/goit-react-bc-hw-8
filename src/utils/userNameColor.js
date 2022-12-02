@@ -11,14 +11,18 @@ export const getColorFromName = (name = '') => {
 
   for (i = 0; i < 3; i += 1) {
     const value = (hash >> (i * 8)) & 0xff;
-    color += `00${value.toString(16)}`.slice(-2);
+    color += `${value.toString(16)}`;
   }
   /* eslint-enable no-bitwise */
-
+  if (color.length < 7) {
+    color += '66';
+  }
   return color;
 };
 
 export const getFirstTwoLetters = (name = '') => {
   const splittedName = name.split(' ');
-  return `${splittedName[0][0]}${splittedName[1] ? splittedName[1][0] : ''}`;
+  return `${splittedName[0][0]}${
+    splittedName[1] ? splittedName[1][0] : splittedName[0][1]
+  }`;
 };

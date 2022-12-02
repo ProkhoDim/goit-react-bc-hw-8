@@ -20,12 +20,14 @@ const ContactCard = ({
   onEdit = () => {},
 }) => {
   return (
-    <Card elevation={4}>
+    <Card elevation={4} sx={{ borderRadius: 2 }}>
       <CardContent sx={{ display: 'flex', alignItems: 'center' }}>
         <Avatar
           sx={{
             mr: 2,
             bgcolor: getColorFromName(getFirstTwoLetters(name).toUpperCase()),
+            height: 60,
+            width: 60,
           }}
         >
           {getFirstTwoLetters(name).toUpperCase()}
