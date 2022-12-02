@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { userLogout } from 'redux/user/operations';
 import {
   addContact,
   editContact,
@@ -53,7 +54,11 @@ const contacts = createSlice({
           contacts: state.contacts.filter(contact => contact.id !== payload.id),
         };
       })
-      .addCase(removeContact.rejected, stopLoading);
+      .addCase(removeContact.rejected, stopLoading)
+      .addCase(userLogout.fulfilled, state => {
+        state.loading = false;
+        state.contacts = [];
+      });
   },
 });
 
