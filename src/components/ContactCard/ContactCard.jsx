@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import {
   Avatar,
   Box,
@@ -7,11 +8,9 @@ import {
   CardContent,
   Typography,
 } from '@mui/material';
-import React from 'react';
 import RemoveIcon from '@mui/icons-material/DeleteRounded';
 import EditIcon from '@mui/icons-material/EditRounded';
 import { getColorFromName, getFirstTwoLetters } from 'utils/userNameColor';
-import { memo } from 'react';
 
 const ContactCard = ({
   id = 0,

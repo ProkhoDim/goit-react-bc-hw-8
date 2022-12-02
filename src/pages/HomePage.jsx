@@ -1,4 +1,4 @@
-import { Box, Button, Divider, Typography } from '@mui/material';
+import { Box, Button, Divider } from '@mui/material';
 import { ReactComponent as PeopleIcon } from 'assets/bacdrop.svg';
 import { BackgroundContainer } from 'components';
 import { MonospaceTitle } from 'components/common';

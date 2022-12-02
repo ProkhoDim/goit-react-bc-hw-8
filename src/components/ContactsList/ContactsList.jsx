@@ -1,5 +1,4 @@
-import ContactCard from 'components/ContactCard/ContactCard';
-import EditForm from 'components/EditForm/EditForm';
+import { ContactCard, EditForm } from 'components';
 import React, { useState } from 'react';
 import { useCallback } from 'react';
 import { editContact, removeContact } from 'redux/contacts/operations';

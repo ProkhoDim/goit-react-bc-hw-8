@@ -24,9 +24,23 @@ const SignUpPage = () => {
     });
 
   const fields = [
-    { label: 'Name', placeholder: 'John Smith', name: 'name' },
-    { label: 'Email', placeholder: 'example@email.com', name: 'email' },
-    { label: 'Password', type: 'password', name: 'password' },
+    {
+      label: 'Name',
+      placeholder: 'John Smith',
+      name: 'name',
+    },
+    {
+      label: 'Email',
+      placeholder: 'example@email.com',
+      name: 'email',
+      autoComplete: 'username',
+    },
+    {
+      label: 'Password',
+      type: 'password',
+      name: 'password',
+      autoComplete: 'current-password',
+    },
   ];
 
   return (
