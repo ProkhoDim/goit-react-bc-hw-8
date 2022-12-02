@@ -21,5 +21,27 @@ export const signupValidation = loginValidation.shape({
   name: Yup.string()
     .required()
     .label('Name')
-    .matches(nameRegExp, 'Name field allows only letters, spaces, dashes and commas'),
+    .matches(
+      nameRegExp,
+      'Name field allows only letters, spaces, dashes and commas'
+    ),
+});
+
+export const contactValidation = Yup.object().shape({
+  name: Yup.string()
+    .required()
+    .label('Name')
+    .matches(
+      nameRegExp,
+      'Name field allows only letters, spaces, dashes and commas'
+    ),
+  number: Yup.string()
+    .required()
+    .label('Phone number')
+    .matches(
+      /(^[+]\d*$)|(^\d*$)/,
+      'Phone number must contain only number and optional plus at the begining'
+    )
+    .min(10, 'Phone number must have at least 10 number')
+    .max(13, 'Phone number is too long'),
 });

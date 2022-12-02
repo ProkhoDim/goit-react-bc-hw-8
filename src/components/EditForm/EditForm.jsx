@@ -2,6 +2,7 @@ import { Button, Dialog, TextField, Typography } from '@mui/material';
 import { useFormik } from 'formik';
 import React from 'react';
 import { useEffect } from 'react';
+import { contactValidation } from 'utils/validation';
 
 const EditForm = ({
   open = false,
@@ -23,6 +24,7 @@ const EditForm = ({
     setValues,
   } = useFormik({
     initialValues: { name: contactName, number: contactNumber },
+    validationSchema: contactValidation,
     onSubmit: values => {
       onEdit(values);
       resetForm();
