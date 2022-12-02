@@ -2,7 +2,7 @@
 export const selectUserName = state => state.user.name;
 
 /** @param {ReduxStore} state */
-export const selectUserEmail = state => state.user.email;
+export const selectUserToken = state => state.user.token;
 
 /** @param {ReduxStore} state */
 export const selectUserError = state => state.user.error;
