@@ -21,6 +21,7 @@ const loginSignupAction = (state, { payload }) => {
   state.token = payload.token;
   state.name = payload.user.name;
   state.email = payload.user.email;
+  state.error = '';
 };
 
 const errorHandled = (state, { payload }) => {
@@ -31,6 +32,7 @@ const errorHandled = (state, { payload }) => {
 
 const startLoading = state => {
   state.loading = true;
+  state.error = '';
 };
 
 const user = createSlice({
@@ -39,9 +41,7 @@ const user = createSlice({
   reducers: {},
   extraReducers: builder => {
     builder
-      .addCase(userLogIn.pending, state => {
-        state.loading = true;
-      })
+      .addCase(userLogIn.pending, startLoading)
       .addCase(userLogIn.fulfilled, loginSignupAction)
       .addCase(userLogIn.rejected, errorHandled)
       .addCase(userSingUp.pending, startLoading)

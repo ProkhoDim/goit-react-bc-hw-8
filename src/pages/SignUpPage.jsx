@@ -3,17 +3,21 @@ import { BackgroundContainer } from 'components';
 import { useFormik } from 'formik';
 import { useAppDispatch, useAppSelector } from 'redux/redux-hooks';
 import { userSingUp } from 'redux/user/operations';
-import { selectUserRefreshing } from 'redux/user/selectors';
+import { selectUserError, selectUserRefreshing } from 'redux/user/selectors';
 import { signupValidation } from 'utils/validation';
 import { ReactComponent as SigninIcon } from 'assets/signin.svg';
 import { Link } from 'react-router-dom';
 import routes from 'constants/routes';
+import { toast } from 'react-hot-toast';
+import useErrorHandler from 'utils/hooks/useErrorHandler';
 
 const initialValues = { name: '', email: '', password: '' };
 
 const SignUpPage = () => {
   const dispatch = useAppDispatch();
   const isLoading = useAppSelector(selectUserRefreshing);
+  useErrorHandler(selectUserError, toast.error);
+
   const { handleSubmit, errors, values, touched, handleChange, handleBlur } =
     useFormik({
       initialValues,

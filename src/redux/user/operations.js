@@ -1,6 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { fetchContacts } from 'redux/contacts/operations';
+import errorMessageParser from 'utils/errorMessageParser';
+import { selectUserToken } from './selectors';
 
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
 
@@ -33,7 +35,9 @@ export const userLogIn = createAsyncThunk(
       thunkAPI.dispatch(fetchContacts());
       return user.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.response.data.message);
+      return thunkAPI.rejectWithValue(
+        errorMessageParser(error, 'Wrong credentials')
+      );
     }
   }
 );
@@ -41,12 +45,10 @@ export const userLogIn = createAsyncThunk(
 export const getCurrentUser = createAsyncThunk(
   'user/getCurrent',
   async (_, thunkAPI) => {
-    const state = thunkAPI.getState();
-    const persistedToken = state.user.token;
+    const persistedToken = selectUserToken(thunkAPI.getState());
 
     if (!persistedToken) {
-      // If there is no token, exit without performing any request
-      return thunkAPI.rejectWithValue('Unable to fetch user');
+      return thunkAPI.rejectWithValue('');
     }
 
     try {
@@ -55,7 +57,7 @@ export const getCurrentUser = createAsyncThunk(
       thunkAPI.dispatch(fetchContacts());
       return user.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.response.data.message);
+      return thunkAPI.rejectWithValue(errorMessageParser(error));
     }
   }
 );
