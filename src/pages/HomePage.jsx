@@ -13,7 +13,9 @@ const HomePage = () => {
       backgroundIcon={<PeopleIcon />}
       sx={{ width: 'auto', maxWidth: 'fit-content', alignItems: 'center' }}
     >
-      <MonospaceTitle variant="h4">Welcome to Contacts app</MonospaceTitle>
+      <MonospaceTitle variant="h4" sx={{ textAlign: 'center', m: 0 }}>
+        Welcome to Contacts app
+      </MonospaceTitle>
       <Box display="flex" justifyContent="space-evenly">
         <Button variant="contained" onClick={() => navigate(routes.LOGIN)}>
           Login
